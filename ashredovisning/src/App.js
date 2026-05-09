@@ -64,7 +64,7 @@ function Navbar() {
       }}
     >
       <div style={{ display: "flex", alignItems: "center" }}>
-        <img src="/ash_logo.png" alt="ASH Redovisning" style={{ height: 70, width: "auto" }} />
+        <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 800, fontSize: 22, color: BLUE, letterSpacing: "-1px" }}>ASH <span style={{ color: "#0d0d1a" }}>Redovisning</span></span>
       </div>
 
       <div style={{ display: "flex", gap: 36, alignItems: "center" }}>
@@ -313,13 +313,13 @@ function Hero() {
 
 // --- TJÄNSTER ---
 const services = [
-  { image: "/radgivning.png", title: "Rådgivning", desc: "Strategisk vägledning för tillväxt, struktur och finansiella beslut som tar dig framåt." },
-  { image: "/lopande_bokforing.png", title: "Löpande bokföring", desc: "Vi sköter din löpande bokföring noggrant och effektivt, alltid i tid och med full koll." },
-  { image: "/bokslut.png", title: "Bokslut & årsredovisning", desc: "Professionell upprättning av bokslut och årsredovisning som uppfyller alla krav." },
-  { image: "/lonehantering.png", title: "Lönehantering", desc: "Komplett löneadministration — löner, semester, arbetsgivaravgifter och rapportering." },
+  { icon: "💡", color: "#e8f4ff", iconBg: "#1437FF", title: "Rådgivning", desc: "Strategisk vägledning för tillväxt, struktur och finansiella beslut som tar dig framåt." },
+  { icon: "📊", color: "#f0fff4", iconBg: "#16a34a", title: "Löpande bokföring", desc: "Vi sköter din löpande bokföring noggrant och effektivt, alltid i tid och med full koll." },
+  { icon: "📋", color: "#fff7ed", iconBg: "#ea580c", title: "Bokslut & årsredovisning", desc: "Professionell upprättning av bokslut och årsredovisning som uppfyller alla krav." },
+  { icon: "💰", color: "#fdf4ff", iconBg: "#9333ea", title: "Lönehantering", desc: "Komplett löneadministration — löner, semester, arbetsgivaravgifter och rapportering." },
 ];
 
-function ServiceCard({ image, title, desc, delay }) {
+function ServiceCard({ icon, color, iconBg, title, desc, delay }) {
   const [hover, setHover] = useState(false);
   return (
     <FadeIn delay={delay}>
@@ -337,11 +337,18 @@ function ServiceCard({ image, title, desc, delay }) {
         }}
       >
         <div style={{
-          width: "100%", height: 180, background: BLUE_LIGHT,
+          width: "100%", height: 160, background: color,
           display: "flex", alignItems: "center", justifyContent: "center",
-          overflow: "hidden"
         }}>
-          <img src={image} alt={title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <div style={{
+            width: 80, height: 80, borderRadius: "50%",
+            background: iconBg,
+            display: "flex", alignItems: "center", justifyContent: "center",
+            fontSize: 36,
+            boxShadow: "0 8px 24px rgba(0,0,0,0.15)"
+          }}>
+            {icon}
+          </div>
         </div>
         <div style={{ padding: "24px" }}>
           <div style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 17, color: "#0d0d1a", marginBottom: 10, letterSpacing: "-0.3px" }}>{title}</div>
@@ -732,7 +739,7 @@ function Footer() {
     <footer style={{ background: "#080810", padding: "40px 48px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <img src="/ash_logo.png" alt="ASH Redovisning" style={{ height: 60, width: "auto", filter: "brightness(0) invert(1)" }} />
+          <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 800, fontSize: 20, color: "white", letterSpacing: "-1px" }}>ASH <span style={{ color: "rgba(255,255,255,0.5)" }}>Redovisning</span></span>
         </div>
         <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.3)" }}>
           © 2026 ASH Redovisning AB. Alla rättigheter förbehållna.
